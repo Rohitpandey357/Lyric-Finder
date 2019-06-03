@@ -8,7 +8,7 @@ class Tracks extends React.Component {
 		return (
 		<Consumer>
 			{value => {
-				const { track_list } = value;
+				const { track_list,heading } = value;
 				
 				if(track_list === undefined || track_list.length===0){
 					return <Spinner />
@@ -18,7 +18,7 @@ class Tracks extends React.Component {
 						
 						<React.Fragment>
 
-							<h3 className="text-center mb-4">Top 10 Songs</h3>
+							<h3 className="text-center mb-4">{heading}</h3>
 							<div className="row">
 								{track_list.map(item=> {
 									return (<Track key={item.track.track_id} track={item.track} />);
